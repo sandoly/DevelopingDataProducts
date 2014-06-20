@@ -93,7 +93,7 @@ ext_widgets : {rCharts: [libraries/highcharts]}
 ```{r shoot-1-plot, echo = FALSE, message=FALSE, warnings=FALSE, results = 'asis'}
 
   require(pander)
-  pandoc.image("./assets/img/myCalories.png")
+  pandoc.image("../assets/img/myCalories.PNG")
 
 ```
 
