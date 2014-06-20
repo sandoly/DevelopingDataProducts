@@ -90,17 +90,11 @@ ext_widgets : {rCharts: [libraries/highcharts]}
 
 ## myCalories demo highlight (shiny + highcharts)
 
-```{r, opts.label = 'shiny', cache=T}
-  require(shiny)
-  require(rCharts)
-  slidifyUI(
-  	sidebarPanel(	numericInput("age", h4("Age:"), 20, min = 0, max = 110),
-                  numericInput("weight", h4("Weight in kilograms:"), 45, min = 1, max = 200),
-                  selectInput("outcome", label = h4("Please select desired outcome: "), c("Lose weight" = 1 ,"Maintain weight" = 2, "Gain weight" = 3), selected = 2)
-                ),
-    mainPanel(width = 600, tags$div(id = 'chartCal', class='shiny-html-output Highcharts rChart')
-            )
-    )
+```{r shoot-1-plot, echo = FALSE, message=FALSE, warnings=FALSE, results = 'asis'}
+
+  require(pander)
+  pandoc.image("assets/img/myCalories.png")
+
 ```
 
 

@@ -74,30 +74,7 @@ Table: Macronutrient Distribution Range: Percent of Energy/Calories
 
 ## myCalories demo highlight (shiny + highcharts)
 
-<div class="row-fluid">
-  <div class="span4">
-    <form class="well">
-      <label for="age">
-        <h4>Age:</h4>
-      </label>
-      <input id="age" type="number" value="20" min="0" max="110"/>
-      <label for="weight">
-        <h4>Weight in kilograms:</h4>
-      </label>
-      <input id="weight" type="number" value="45" min="1" max="200"/>
-      <label class="control-label" for="outcome">
-        <h4>Please select desired outcome: </h4>
-      </label>
-      <select id="outcome"><option value="1">Lose weight</option>
-<option value="2" selected>Maintain weight</option>
-<option value="3">Gain weight</option></select>
-      <script type="application/json" data-for="outcome" data-nonempty="">{}</script>
-    </form>
-  </div>
-  <div class="span600">
-    <div id="chartCal" class="shiny-html-output Highcharts rChart"></div>
-  </div>
-</div>
+![](assets/img/myCalories.png)
 
 
 
