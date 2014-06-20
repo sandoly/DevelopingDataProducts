@@ -90,12 +90,6 @@ ext_widgets : {rCharts: [libraries/highcharts]}
 
 ## myCalories demo highlight (shiny + highcharts)
 
-```{r shoot-1-plot, echo = FALSE, message=FALSE, warnings=FALSE, results = 'asis'}
-
-  require(pander)
-  pandoc.image("../assets/img/myCalories.PNG")
-
-```
-
+![image](assets/img/myCalories.PNG)
 
 

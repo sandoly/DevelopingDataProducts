@@ -74,7 +74,6 @@ Table: Macronutrient Distribution Range: Percent of Energy/Calories
 
 ## myCalories demo highlight (shiny + highcharts)
 
-![](../assets/img/myCalories.PNG)
-
+![image](assets/img/myCalories.PNG)
 
 
