@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introducing myCalories App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introducing myCalories App">
+  <meta name="author" content="Szabolcs Sandoly">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/prettify/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
+<script src="libraries/widgets/highcharts/js/exporting.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Introducing myCalories App</h1>
+    <h2>Developing Data Products, Coursera</h2>
+    <p>Szabolcs Sandoly<br/>R &amp; Shiny Rookie</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Yet another app? for what?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Healthy lifestyle begs for being aware of daily calories intake</li>
+<li>Methods for determining energy needs: 
+
+<ul>
+<li>indirect calorimetry (equipment based) </li>
+<li>predictive equations (Harris-Benedict, Mifflin-St.Jeor)</li>
+<li>quick and dirty method (calories per body weight)</li>
+</ul></li>
+<li>Harris-Benedict usally overestimates needs (27% of times), while Mifflin-St.Jeor predicts better</li>
+<li>calories per body weight method developed for time sensitive clinical settings </li>
+<li>myCalories application:
+
+<ul>
+<li>asks users to input age, gender, weight in kg, and height in cm<br></li>
+<li>compares Miflin-St.Jeor vs. calories per body weight equations</li>
+<li>displays macronutrients breakdown in calories and grams</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Mifflin-St.Jeor Equation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Mifflin-St.Jeor equation outputs Resting or Basal Metabolic Rate (RMR) 
+
+<ul>
+<li>measurement of how many calories the body burns at rest</li>
+<li>men: RMR = \(9.99 * weight[kg] + 6.25 * height[cm] - 4.92 * Age + 5\)<br></li>
+<li>women: RMR = \(9.99 * weight[kg] + 6.25 * height[cm] - 4.92 * Age - 161\)</li>
+<li>predicts within 10% of measured RMR than any other equation</li>
+</ul></li>
+<li>To take activity level account RMR needs to be multiplied by an activity factor of 1.2-2, where:
+
+<ul>
+<li>sedentary (little or no exercise) : RMR x 1.2</li>
+<li>lightly active (light exercise/sports 1-3 days/week) : RMR x 1.375 </li>
+<li>moderately active (moderate exercise/sports 3-5 days/week) : RMR x 1.55 </li>
+<li>very active (hard exercise/sports 6-7 days a week) : RMR x 1.725</li>
+<li>extra active (very hard exercise/sports and physical job or 2x training) : RMR x 1.9 </li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Calories per Body Weight &amp; Macronutrients</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Easy and fast way to calculate calorie ranges for individuals in clinical settings</li>
+</ul>
+
+<table><thead>
+<tr>
+<th align="center">Desired Outcome</th>
+<th align="center">Multiply</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">To lose weight</td>
+<td align="center">20-25 calories per kg body weight</td>
+</tr>
+<tr>
+<td align="center">To maintain weight</td>
+<td align="center">25-30 calories per kg body weight</td>
+</tr>
+<tr>
+<td align="center">To gain weight</td>
+<td align="center">30-35 calories per kg body weight</td>
+</tr>
+</tbody></table>
+
+<p>Table: Energy needs: Cal / kg</p>
+
+<ul>
+<li>Macronutrient distribution ranges (Dietary Guidelines for Americans,2010)</li>
+</ul>
+
+<table><thead>
+<tr>
+<th align="center">Macronutrient</th>
+<th align="center">Children, 1-3 years</th>
+<th align="center">Children, 4-18 years</th>
+<th align="center">Adults &gt; 18 years</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">Carbohydrate</td>
+<td align="center">45-65%</td>
+<td align="center">45-65%</td>
+<td align="center">45-65%</td>
+</tr>
+<tr>
+<td align="center">Fat</td>
+<td align="center">30-40%</td>
+<td align="center">25-33%</td>
+<td align="center">20-35%</td>
+</tr>
+<tr>
+<td align="center">Protein</td>
+<td align="center">5-20%</td>
+<td align="center">10-30%</td>
+<td align="center">10-35%</td>
+</tr>
+</tbody></table>
+
+<p>Table: Macronutrient Distribution Range: Percent of Energy/Calories</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>myCalories demo highlight (shiny + highcharts)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/img/myCalories.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Yet another app? for what?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Mifflin-St.Jeor Equation'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Calories per Body Weight &amp; Macronutrients'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='myCalories demo highlight (shiny + highcharts)'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/interactive/js/ace/js/ace.js"></script>
+<script src="libraries/widgets/interactive/js/interactive.js"></script>
+
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script src="shared/shiny.js" type="text/javascript"></script>
+  <script src="shared/slider/js/jquery.slider.min.js"></script>
+  <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="shared/slider/css/jquery.slider.min.css"></link>
+  
+  <!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>
